@@ -1,28 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
-#include<stdlib.h>
-
-typedef char element;
-
-typedef struct DQNode {
-	element data;
-	struct DQNode* rlink;
-	struct DQNode* llink;
-}DQNode;
-
-typedef struct DQType {
-	DQNode* front, * rear;
-}DQType;
-
-DQType* createDQueue();
-int isDQEmpty(DQType* DQ);
-void insertFront(DQType* DQ, element item);
-void insertRear(DQType* DQ, element item);
-element deleteFront(DQType* DQ);
-element deleteRear(DQType* DQ);
-element peekFront(DQType* DQ);
-element peekRear(DQType* DQ);
-void print(DQType* DQ);
+#include"DeQue.h"
 
 DQType* createDQueue() {
 	DQType* DQ;
@@ -132,31 +108,4 @@ void print(DQType* DQ) {
 		temp = temp->rlink;
 	}
 	printf("]");
-}
-
-void main() {
-	DQType* DQ = createDQueue();
-	element data;
-	printf("*****µ¥Å© ¿¬»ê*****");
-	printf("\n front »ðÀÔ A>>");
-	insertFront(DQ, 'A');
-	print(DQ);
-	printf("\n front »ðÀÔ B>>");
-	insertFront(DQ, 'B');
-	print(DQ);
-	printf("\n rear »ðÀÔ C>>");
-	insertRear(DQ, 'C');
-	print(DQ);
-	printf("\n front »èÁ¦>>"); data= deleteFront(DQ); print(DQ);
-	printf("\t\t »èÁ¦ µ¥ÀÌÅÍ: %c", data);
-	printf("\n rear »èÁ¦>>"); data = deleteRear(DQ); print(DQ);
-	printf("\t\t »èÁ¦ µ¥ÀÌÅÍ: %c", data);
-	printf("\n front »ðÀÔ D>>");
-	insertFront(DQ, 'D');
-	print(DQ);
-	printf("\n rear »ðÀÔ E>>");
-	insertRear(DQ, 'E');
-	print(DQ);
-	data = peekFront(DQ); printf("\n peek data: %c", data);
-	data = peekRear(DQ); printf("\n peek data: %c", data);
 }
